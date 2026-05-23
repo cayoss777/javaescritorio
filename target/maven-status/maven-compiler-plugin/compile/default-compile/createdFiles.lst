@@ -1,0 +1,7 @@
+ControlVendedor\Control_Vendedor.class
+VistaVentas\frmVentas.class
+ConexionBD\ConexionMySql.class
+ModeloVendedor\Vendedor.class
+VistaVentas\frmLogin.class
+VistaVentas\frmPrincipal.class
+com\mycompany\uailogin\UaiLogin.class
