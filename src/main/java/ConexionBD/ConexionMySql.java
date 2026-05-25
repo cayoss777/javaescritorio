@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConexionMySql {
 
     private static final String URL
-            = "jdbc:mysql://localhost:3306/bd_uai_login?"
+            = "jdbc:mysql://localhost:3306/bd_dos?"
             + "useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASS = "";

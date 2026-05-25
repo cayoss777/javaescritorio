@@ -1,0 +1,5 @@
+# Database configuration for bd_dos
+# Copy this file to db.properties and fill in your credentials
+db.url=jdbc:mysql://localhost:3306/bd_dos?useSSL=false&serverTimezone=UTC
+db.user=root
+db.password=
