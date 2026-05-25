@@ -4,17 +4,19 @@
  */
 package VistaVentas;
 
+import ModeloClientes.Cliente;
 import ModeloVendedor.Vendedor;
+import VistaClientes.dlgClientes;
 
 /**
  *
  * @author USUARIO
  */
 public class frmVentas extends javax.swing.JFrame {
-    
+
     // Declaración de la variable
- private Vendedor vendedorActual; // ← Agrega esta línea 
- 
+    private Vendedor vendedorActual; // ← Agrega esta línea 
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(frmVentas.class.getName());
 
     /**
@@ -23,15 +25,14 @@ public class frmVentas extends javax.swing.JFrame {
     public frmVentas() {
         initComponents();
     }
-    
-     // Constructor que recibe el vendedor
- public frmVentas(Vendedor v) {
- initComponents();
- this.vendedorActual = v;
- // Mostrar nombre del vendedor en algún JLabel
- lblVendedor.setText("Vendedor: " + v.getNombre());
- } 
 
+    // Constructor que recibe el vendedor
+    public frmVentas(Vendedor v) {
+        initComponents();
+        this.vendedorActual = v;
+        // Mostrar nombre del vendedor en algún JLabel
+        lblVendedor.setText("Vendedor: " + v.getNombre());
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,30 +44,117 @@ public class frmVentas extends javax.swing.JFrame {
     private void initComponents() {
 
         lblVendedor = new javax.swing.JLabel();
+        btnVerClientes = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtIdCliente = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtApellidoCliente = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblVendedor.setText("Vendedor");
+
+        btnVerClientes.setText("VerClientes");
+        btnVerClientes.addActionListener(this::btnVerClientesActionPerformed);
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos"));
+
+        jLabel1.setText("Código");
+
+        jLabel2.setText("Nombres");
+
+        jLabel3.setText("Apellidos");
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel4.setText("Cliente");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(263, Short.MAX_VALUE)
-                .addComponent(lblVendedor)
-                .addGap(84, 84, 84))
+                .addGap(155, 155, 155)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVerClientes)
+                    .addComponent(lblVendedor))
+                .addGap(87, 87, 87))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(lblVendedor)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(btnVerClientes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVendedor)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerClientesActionPerformed
+        // TODO add your handling code here:
+        dlgClientes dialogoClientes = new dlgClientes(this, true);
+        dialogoClientes.setVisible(true);
+
+        // Después de cerrar, obtener el cliente seleccionado
+        Cliente cliente = dialogoClientes.getClienteSeleccionado();
+        if (cliente != null) {
+            // Llenar los campos del formulario principal (frmVentas)
+            txtIdCliente.setText(String.valueOf(cliente.getId()));
+            txtNombreCliente.setText(cliente.getNombre());
+            txtApellidoCliente.setText(cliente.getApellido());
+        }
+    }//GEN-LAST:event_btnVerClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,6 +182,15 @@ public class frmVentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerClientes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblVendedor;
+    private javax.swing.JTextField txtApellidoCliente;
+    private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtNombreCliente;
     // End of variables declaration//GEN-END:variables
 }

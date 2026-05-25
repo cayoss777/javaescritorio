@@ -20,7 +20,6 @@ public class ConexionMySql {
     private static final String USER = "root";
     private static final String PASS = "";
     // Bloque estático para registrar el driver (opcional en Java 8+)
-
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +27,6 @@ public class ConexionMySql {
             e.printStackTrace();
         }
     }
-
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASS);
     }
