@@ -19,7 +19,7 @@ public class Control_Vendedor {
 
     public Vendedor validarLogin(String nombre, String password) {
         String sql = "SELECT idVendedor, nombreVendedor FROM "
-                + "tabla_vendedor WHERE nombreVendedor = ? "
+                + "table_vendedor WHERE nombreVendedor = ? "
                 + "AND password = ?";
         try (Connection conn = ConexionMySql.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql)) {
